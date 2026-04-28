@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-gray-800 antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-slate-800 text-white px-5 py-2.5 rounded-lg text-sm font-medium
+           hover:bg-slate-700 active:bg-slate-900 transition-all duration-150
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-gray-600 px-4 py-2 rounded-lg text-sm font-medium
+           border border-gray-200 hover:bg-gray-50 hover:border-gray-300
+           transition-all duration-150 disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  
+  .input-field {
+    @apply w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-lg bg-white
+           placeholder-gray-400
+           focus:outline-none focus:ring-2 focus:ring-slate-200 focus:border-slate-400
+           transition-all duration-150;
+  }
+  
+  .textarea-field {
+    @apply w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-lg bg-white
+           placeholder-gray-400 resize-none
+           focus:outline-none focus:ring-2 focus:ring-slate-200 focus:border-slate-400
+           transition-all duration-150;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl border border-gray-100 shadow-sm p-6;
+  }
+  
+  .badge-critical {
+    @apply inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium bg-red-50 text-red-600;
+  }
+  
+  .badge-high {
+    @apply inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium bg-amber-50 text-amber-600;
+  }
+  
+  .badge-medium {
+    @apply inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium bg-yellow-50 text-yellow-600;
+  }
+  
+  .badge-low {
+    @apply inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium bg-slate-50 text-slate-500;
+  }
+}

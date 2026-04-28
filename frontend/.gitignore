@@ -1,0 +1,27 @@
+# Node
+node_modules/
+dist/
+build/
+*.local
+.env
+.env.local
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Testing
+coverage/
+.nyc_output/
