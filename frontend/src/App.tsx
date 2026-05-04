@@ -391,6 +391,8 @@ function App() {
                   report={qaReport}
                   onFixPlan={handleFixPlan}
                   isFixing={isFixing}
+                  plan={plan}
+                  brief={brief}
                 />
                 {consistencyReport && (
                   <ConsistencyPanel report={consistencyReport} />

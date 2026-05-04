@@ -81,6 +81,19 @@ class OpenAIService:
                 
                 content = response.choices[0].message.content
                 
+                # Check if content is None or empty
+                if content is None:
+                    logger.warning("Received None content from OpenAI. Response may have been filtered or empty.")
+                    # Check if there was a finish_reason that explains why
+                    finish_reason = response.choices[0].finish_reason
+                    logger.warning(f"Finish reason: {finish_reason}")
+                    if finish_reason == "content_filter":
+                        raise ValueError("Response was filtered by content policy")
+                    elif finish_reason == "length":
+                        raise ValueError("Response was cut off due to max_tokens limit")
+                    else:
+                        raise ValueError(f"Empty response from model (finish_reason: {finish_reason})")
+                
                 logger.info(
                     f"OpenAI request successful. "
                     f"Tokens used: {response.usage.total_tokens}"
@@ -168,6 +181,12 @@ class OpenAIService:
             response_format={"type": "json_object"},
         )
         
+        # Check if response_text is None or empty
+        if not response_text:
+            logger.error("Received empty or None response from OpenAI")
+            raise ValueError("Empty response from model")
+        
+        response_data = None
         try:
             # Parse JSON response
             response_data = json.loads(response_text)
@@ -184,7 +203,10 @@ class OpenAIService:
             raise ValueError(f"Invalid JSON response from model: {str(e)}")
         except Exception as e:
             logger.error(f"Failed to create model from response: {str(e)}")
-            logger.error(f"Response data: {response_data}")
+            if response_data is not None:
+                logger.error(f"Response data: {response_data}")
+            else:
+                logger.error(f"Response text: {response_text}")
             raise ValueError(f"Response doesn't match expected schema: {str(e)}")
     
     # Mapping of common LLM-generated channel types to valid enum values
