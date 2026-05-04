@@ -53,6 +53,45 @@ An AI-powered tool that helps campaign managers transform ambiguous campaign bri
 | 1-2 hours (manual QA review) | 15 seconds (AI validation) | **~98% faster** |
 | **Total: 8-13 hours** | **Total: ~3 minutes** | **From days to minutes** |
 
+## 🔄 Workflow Diagram
+
+The complete campaign planning workflow from brief submission to launch approval:
+
+```mermaid
+graph TB
+    Start([User Starts]) --> Brief[📝 Campaign Brief]
+    Brief --> Analyze[🔍 AI Analyzes<br/>Identifies Gaps]
+    Analyze --> Questions[❓ Generate Questions<br/>Prioritized & Contextualized]
+    Questions --> Answer[💬 User Answers<br/>or AI Assumes]
+    Answer --> Plan[📋 AI Generates<br/>Execution Plan]
+    Plan --> QA[✅ QA Validation<br/>Score & Issues]
+    QA --> Check{Ready?}
+    Check -->|Yes| Launch[🎉 Approve & Launch]
+    Check -->|No| Fix[🔧 Apply Fixes]
+    Fix --> Plan
+    Launch --> End([Campaign Approved])
+    
+    style Brief fill:#e0f2fe
+    style Analyze fill:#dbeafe
+    style Questions fill:#fef3c7
+    style Answer fill:#fef9c3
+    style Plan fill:#d1fae5
+    style QA fill:#fce7f3
+    style Check fill:#fff7ed
+    style Launch fill:#10b981,color:#fff
+    style Fix fill:#8b5cf6,color:#fff
+```
+
+**Key Workflow Steps:**
+1. **Brief Submission** → User provides campaign details
+2. **AI Analysis** → Identifies gaps and ambiguities (2-5 seconds)
+3. **Question Generation** → Creates contextualized, prioritized questions
+4. **User Interaction** → Answer questions or skip (AI documents assumptions)
+5. **Plan Generation** → AI creates complete execution plan (30 seconds)
+6. **QA Validation** → Compares plan vs brief, calculates alignment score (15 seconds)
+7. **Decision Point** → If ready (score ≥80), approve & launch; otherwise apply fixes and regenerate
+8. **Launch** → Campaign plan approved with celebration 🎉
+
 ## 🏗️ Architecture
 
 ```
