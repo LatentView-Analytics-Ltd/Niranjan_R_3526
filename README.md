@@ -71,15 +71,15 @@ graph TB
     Fix --> Plan
     Launch --> End([Campaign Approved])
     
-    style Brief fill:#e0f2fe
-    style Analyze fill:#dbeafe
-    style Questions fill:#fef3c7
-    style Answer fill:#fef9c3
-    style Plan fill:#d1fae5
-    style QA fill:#fce7f3
-    style Check fill:#fff7ed
-    style Launch fill:#10b981,color:#fff
-    style Fix fill:#8b5cf6,color:#fff
+    style Brief fill:#0284c7,color:#fff
+    style Analyze fill:#2563eb,color:#fff
+    style Questions fill:#f59e0b,color:#fff
+    style Answer fill:#eab308,color:#fff
+    style Plan fill:#10b981,color:#fff
+    style QA fill:#ec4899,color:#fff
+    style Check fill:#f97316,color:#fff
+    style Launch fill:#059669,color:#fff
+    style Fix fill:#7c3aed,color:#fff
 ```
 
 **Key Workflow Steps:**
